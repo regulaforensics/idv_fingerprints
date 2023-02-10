@@ -15,7 +15,7 @@ public VerifyResponse MatchFingerprint(VerifyRequest request) {
 
     double score = new FingerprintMatcher(sample).Match(candidate);
         
-    AddTimeout(1500, 3000);
+    //AddTimeout(1500, 3000);
 
     return GetResultResponse(score);
 
