@@ -17,13 +17,13 @@ public class VerifyRequest
 
 public class VerifyResponse
 {
-    public string result { get; set; } = string.Empty;
+    public string Result { get; set; } = string.Empty;
 
-    public string status { get; set; } = string.Empty;
+    public string Status { get; set; } = string.Empty;
 
-    public string error { get; set; } = string.Empty;
+    public string Error { get; set; } = string.Empty;
 
-    public string probability { get; set; } = string.Empty;
+    public string Probability { get; set; } = string.Empty;
 
-    public string weight { get; set; } = string.Empty;
+    public string Weight { get; set; } = string.Empty;
 }
