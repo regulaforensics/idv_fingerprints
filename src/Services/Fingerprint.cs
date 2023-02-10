@@ -36,17 +36,17 @@ private VerifyResponse GetResultResponse(double score){
     Random rnd = new Random();
 
     var response = new VerifyResponse();
-    response.status = "OK";
-    response.error = "";
-    response.weight = Convert.ToInt32(score).ToString();
+    response.Status = "OK";
+    response.Error = "";
+    response.Weight = Convert.ToInt32(score).ToString();
 
     if (score > 40){
-        response.result = "Yes";
-        response.probability = rnd.Next(95, 100).ToString();
+        response.Result = "Yes";
+        response.Probability = rnd.Next(95, 100).ToString();
     }
     else {
-        response.result = "No";
-        response.probability = rnd.Next(10).ToString();
+        response.Result = "No";
+        response.Probability = rnd.Next(10).ToString();
     }
 
     return response;
