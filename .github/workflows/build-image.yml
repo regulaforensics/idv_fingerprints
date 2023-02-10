@@ -33,7 +33,6 @@ jobs:
         with:
           file: src/fingerprint_service/Dockerfile
           context: ./src/fingerprint_service
-          file: 'Dockerfile'
           push: true
           tags: regulaforensics/idv-aspk-proxy:finger_latest
           cache-from: type=registry,ref=regulaforensics/idv-aspk-proxy:finger_latest
