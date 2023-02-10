@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: idv-aspk
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: idv-aspk
+  name: idv-fingers
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: idv-fingers
+  template:
+    metadata:
+      labels:
+        app: idv-fingers
+    spec:
+      containers:
+      - name: idv-fingers
+        image: regulaforensics/idv-aspk-proxy:finger_latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "128Mi"
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: idv-fingers
+  name: idv-fingers
+  namespace: idv-aspk
+  annotations:
+    load-balancer.hetzner.cloud/name: idv-fingers-lb
+    load-balancer.hetzner.cloud/location: fsn1
+    load-balancer.hetzner.cloud/use-private-ip: "true"
+spec:
+  selector:
+    app: idv-fingers
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer
