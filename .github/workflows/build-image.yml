@@ -31,6 +31,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
+          file: src/fingerprint_service/Dockerfile
+          context: ./src/fingerprint_service
           file: 'Dockerfile'
           push: true
           tags: regulaforensics/idv-aspk-proxy:finger_latest

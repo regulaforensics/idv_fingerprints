@@ -16,7 +16,7 @@ public class FingerprintController : ControllerBase
     [HttpPost("/verify")]
     public VerifyResponse Verify(VerifyRequest request)
     {
-      return new FingerprintService().MatchFingerprint(request);
+        return new FingerprintService().MatchFingerprint(request);
     }
 
 }

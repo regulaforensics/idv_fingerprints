@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace fingerprint_service;
 
 public class VerifyRequest
@@ -17,13 +19,18 @@ public class VerifyRequest
 
 public class VerifyResponse
 {
+    [JsonPropertyName("Result")]
     public string Result { get; set; } = string.Empty;
 
+    [JsonPropertyName("Status")]
     public string Status { get; set; } = string.Empty;
 
+    [JsonPropertyName("Error")]
     public string Error { get; set; } = string.Empty;
 
+    [JsonPropertyName("Probability")]
     public string Probability { get; set; } = string.Empty;
 
+    [JsonPropertyName("Weight")]
     public string Weight { get; set; } = string.Empty;
 }
